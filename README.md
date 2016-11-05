@@ -57,9 +57,14 @@ one **DOES NOT support collaboration very well**, specifically:
 
 
 
-# How to start coding and testing on your local computer 
+# How to start coding on your local computer 
 
--   Install **Ionic 1, Cordova >= 4.2.0** on your computer
+-   Install **Ionic 1, Cordova >= 4.2.0** globally on your computer:
+
+    ```
+    npm install cordova -g
+    npm install ionic -g    
+    ```
 
 -   Install **Cordova plugin Inapp Browser** (which is needed for **Facebook Authentication**):
         
@@ -80,10 +85,36 @@ one **DOES NOT support collaboration very well**, specifically:
     This command will watch out for file changes in the **app** folder and
     automatically rebuild the project
 
--  Now start **Ionic Serve** (read more about it on Ionic website):
+-  Now start **Ionic Serve** in a **different terminal** (read more about it on Ionic website):
 
     ```
     ionic serve
     ```
+
+
+
+# How to run unit-testing
+
+-   Install **karma-cli** globally:
+
+    ```
+    npm install karma-cli -g
+    ```
+
+-   Run ```npm install``` just to make sure that all NPM packages are fully installed
+
+-   Write test for **Angular controllers** in **unit_testing/test_controller** directory.
+    I have included a testing file **AccountCtrl_test.js** as an example
+
+-   Write test for **Angular services** in **unit_testing/test_services** directory.
+
+-   **Run all test cases** (make sure you have installed Google Chrome in your computer):
+
+    ```
+    karma start
+    ```
+
+-   You can see the sample coverage report in the **coverage** directory
+
 
     
