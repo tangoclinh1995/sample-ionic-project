@@ -1,9 +1,10 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var runSequence = require("run-sequence");
 var bower = require('bower');
 var concat = require('gulp-concat');
 var cleanCss = require('gulp-clean-css');
-var rename = require('gulp-rename');
+var del = require("del");
 var sh = require('shelljs');
 
 var paths = {
@@ -15,9 +16,12 @@ var paths = {
 
 var BUNDLE_DESTINATION = "www/bundle";
 
-gulp.task('default', ['css_bundle', 'js_controllers', 'js_services', 'js_routing', 'css_bundle']);
-
-gulp.task('build', ['css_bundle', 'js_controllers', 'js_services', 'js_routing', 'css_bundle'])
+gulp.task("build", [
+  "css_bundle",
+  "js_controllers",
+  "js_services",
+  "js_routing",
+]);
 
 gulp.task("css_bundle", function(done) {
   return gulp.src(paths.css)
@@ -48,12 +52,15 @@ gulp.task("js_routing", function(done) {
 
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.css, ["css_bundle"]);
-  gulp.watch(paths.controller, ["js_controllers"]);
-  gulp.watch(paths.services, ["js_services"]);
-  gulp.watch(paths.routing, ["js_routing"]);
+gulp.task("watch", function() {
+  runSequence("clean", "build", function() {
+    gulp.watch("app/**/*", ["build"]);
+  });
+  
+});
 
+gulp.task("clean", function() {
+  return del(BUNDLE_DESTINATION);
 });
 
 gulp.task('install', ['git-check'], function() {
