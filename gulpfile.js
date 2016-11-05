@@ -23,6 +23,10 @@ gulp.task("build", [
   "js_routing",
 ]);
 
+gulp.task("default", function() {
+  runSequence("clean", "build");
+});
+
 gulp.task("css_bundle", function(done) {
   return gulp.src(paths.css)
     .pipe(concat("style.bundle.css"))
