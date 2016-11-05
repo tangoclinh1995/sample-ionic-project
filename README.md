@@ -1,5 +1,6 @@
 # Sample Ionic Project for COMP 3111/H (HKUST)
-## (The Honors Club group)
+
+
 
 This repo showcases the **sample structure** of an **Ionic Project** for **COMP 3111H**.
 
@@ -27,6 +28,9 @@ one **DOES NOT support collaboration very well**, specifically:
 -   This make us very difficult to write code simultaneously because **CONFLICTS WILL ALWAYS HAPPEN** when 
     we merge these two files. This kind of conflict is unnecessary and does not worth time to resolve.
 
+It is necessary to split files like **controllers.js** and **services.js** into multiple, managable small files.
+Later on, the build process (implemented in **gulpfile**) will combine these files into big files for efficiency. 
+
 
 
 # Structure of the repo
@@ -47,6 +51,15 @@ one **DOES NOT support collaboration very well**, specifically:
     required for the pages/components you are developing.
 
     Please pay attention to the code structure of the example file **tabsRouting.js** I put in this directory
+
+-   **www/app.js**: Pay attention to the following lines of code at the end of the file:
+
+    ```
+    // Default state
+    $urlRouterProvider.otherwise('/tab/dash');
+    ```
+
+    This code determines the page that will be shown when **the app is first open**    
 
 -   **www/templates**: This directory stores Angular template, similar to the original repo.
 
