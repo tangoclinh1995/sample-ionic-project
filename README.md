@@ -130,4 +130,17 @@ Later on, the build process (implemented in **gulpfile**) will combine these fil
 -   You can see the sample coverage report in the **coverage** directory
 
 
+
+# How to write a Firebase-related unit test
+
+-   Create a new Firebase database separated from your project's main Firebase database.
+    This database is going to be used for **TESTING PURPOSE ONLY**
+
+-   Take a look at the file **unit_testing/firebase_test.js** for better understanding
+    of the testing procedure.
+
+
+
+
+
     
