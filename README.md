@@ -72,22 +72,32 @@ Later on, the build process (implemented in **gulpfile**) will combine these fil
 
 # How to start coding on your local computer 
 
--   Install **Ionic 1, Cordova >= 4.2.0** globally on your computer:
+-   Install **Ionic 1, Cordova >= 4.2.0, Bower** globally on your computer:
 
     ```
     npm install cordova -g
     npm install ionic -g    
-    ```
-
--   Install **Cordova plugin Inapp Browser** (which is needed for **Facebook Authentication**):
-        
-    ```
-    ionic plugin add cordova-plugin-inappbrowser
+    npm install bower -g
     ```
 
 -   cd to the repo directory in your computer
 
 -   Run ```npm install``` just to make sure that all NPM packages are fully installed
+
+-   Install missing bower libraries:
+
+    ```
+    bower install
+    ```
+
+    **NOTE**: If during this installation process, you are prompted to choose the version of AngularJS
+    or other library which depends on AngularJS, **ALWAYS REMEMBER** to choose **AngularJS 1.5.3** 
+
+-   Install missing Cordova Plugin:
+
+    ```
+    ionic state reset
+    ```
 
 -   Before you start your developing process, start **Gulp watch**
         
